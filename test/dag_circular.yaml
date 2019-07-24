@@ -1,0 +1,29 @@
+dag_config:
+  name: test
+  input: [a]
+  nodes:
+    dependent:
+      processor: double
+      input:
+        a: a
+      output:
+        x: b
+    double:
+      processor: double
+      input:
+        a: doubled3
+      output:
+        doubled: b
+    double2:
+      processor: double
+      input:
+        a: doubled
+      output:
+        doubled2: b
+    double3:
+      processor: double
+      input:
+        a: doubled2
+      output:
+        doubled3: b
+  output: [doubled,doubled2]
